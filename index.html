@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Bloqueio - Vila Ven Flor</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  .lock-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #1e1e1e;
+    color: #fff;
+  }
+  .lock-screen h1 {
+    margin-bottom: 20px;
+  }
+  .lock-screen input[type="password"] {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .lock-screen button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .unlock-screen {
+    display: none;
+    padding: 20px;
+    background: #f6f6f6;
+    min-height: 100vh;
+  }
+  .email {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #fff;
+  }
+  .email:hover {
+    background: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <h1>Vila Ven Flor - Email</h1>
+  <input type="password" id="password" placeholder="Digite a senha">
+  <button onclick="checkPassword()">Desbloquear</button>
+  <p id="error" style="color:red; margin-top:10px;"></p>
+</div>
+
+<div class="unlock-screen" id="unlockScreen">
+  <h1>Inbox</h1>
+  <div class="email" onclick="alert('Email 1: Assunto: Experimentos na vila\\nDe: prefeito@vilavenflor.com')">Email de Jurandir</div>
+  <div class="email" onclick="alert('Email 2: Assunto: Relatório dos pesquisadores\\nDe: lucas@vilavenflor.com')">Email de Lucas</div>
+  <div class="email" onclick="alert('Email 3: Assunto: Aprovação de verba\\nDe: paulo@vilavenflor.com')">Email de Paulo</div>
+  <div class="email" onclick="alert('Email 4: Assunto: Notas do dia\\nDe: luiza@vilavenflor.com')">Email de Luiza</div>
+</div>
+
+<script>
+  function checkPassword() {
+    const input = document.getElementById('password').value;
+    const error = document.getElementById('error');
+    if(input === '123') {
+      document.getElementById('lockScreen').style.display = 'none';
+      document.getElementById('unlockScreen').style.display = 'block';
+    } else {
+      error.textContent = 'Senha incorreta';
+    }
+  }
+</script>
+
+</body>
+</html>
